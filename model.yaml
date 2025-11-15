@@ -1,0 +1,29 @@
+# CVAT 2.49.0 YOLOv8 model configuration
+
+labels:
+  - TMA   # 你的唯一类别
+
+model_weights: best.pt
+
+framework: pytorch
+device: cpu
+
+# 推理参数
+confidence_threshold: 0.25
+nms_threshold: 0.45
+imgsz: 640
+
+# YOLOv8 模型加载说明
+handler:
+  type: yolo
+  model_format: ultralytics
+
+# 输入输出定义（不要修改）
+input:
+  - name: images
+    shape: [1, 3, 640, 640]
+    dtype: float32
+
+output:
+  - name: predictions
+    dtype: float32
